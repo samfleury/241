@@ -1,0 +1,86 @@
+package week11;
+
+import java.util.Arrays;
+
+/**
+ *  A heap sort implementation which is able to be observed through its
+ *  Sorter superclass.
+ *
+ * @author Sam Fleury
+ */
+public class HeapSort extends Sorter {
+
+    /**
+     *  Create a new HeapSort sorter with the given integers to sort.
+     * 
+     * @param nums the integers to sort.
+     */
+    public HeapSort(Integer[] nums) {
+        super(nums); // pass nums[] to the superclass Sort
+    }
+
+    /**
+     * Sort the integers (which are stored in the parent Sorter class). 
+     */
+    public void sortNums() {
+        // int i, j, comparisons, and nums[] are all protected datafields in
+        // the superclass Sort so we can use them without declaring them
+        heapify(0);
+        System.out.println(Arrays.toString(nums));
+        int start = 0
+        for (int i = nums.length - 1; i > 0; i--){
+            swap(0, i);
+            start++
+            heapify;
+        }
+        System.out.println(Arrays.toString(nums));
+    }
+
+    /**
+     * Make array into a heap.
+     */
+    public void heapify(start){
+        for (int i = (nums.length - 1)/2; i >= start; i--){
+            siftDown(i, nums.length);
+            update();
+        }
+    }
+
+    /**
+     * Sift a number down.
+     * @param num The index of the  number to sift.
+     */
+    public void siftDown(int s, int high){                   
+        // find largest child
+        comparisons += 2;
+        int largestChildIndex = getLargestChildIndex(s);
+
+        if (largestChildIndex >= 0){
+            swap(s, largestChildIndex);
+            siftDown(largestChildIndex, high);
+        }
+        return;
+    }
+    
+    public void swap(int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    public int getLargestChildIndex(int i){
+        int l = 2*i + 1;
+        int r = 2*i + 2;
+
+        if (r >= nums.length || nums[r] < nums[l]){
+            if ( l < nums.length && nums[i] < nums[l]){
+                return l;
+            }
+        } else{
+            if (nums[i] < nums[r]){
+                return r;
+            }
+        }
+        return -1;
+    }
+}

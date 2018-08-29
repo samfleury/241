@@ -1,0 +1,16 @@
+1. Compiler error, saying the class name should match the file name:
+   Hi.java:1: error: class hi is public, should be declared in a file named hi.java
+
+2. Compiles, outputting "hello, world!" as expected.
+
+3.  Compiler errors, re: expected ')', unclosed string literal (quotation mark), and misinterpreting the line-ending semicolon as part of the unclosed string literal, as well as an unmatched curly brace at the end.
+
+4. Compiler errors, re: unclosed string literal, and ignoring line-ending semicolon as above
+
+5. Run-time error, no main method.
+
+6. Compiler error, no method called "printline" that takes a string as an argument
+
+7. Compiler error, ';' expected.
+
+8. Compiler error, reached end of file while looking for a matching '}'

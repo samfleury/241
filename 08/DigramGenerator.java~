@@ -1,0 +1,52 @@
+package week08;
+
+import java.util.*;
+import java.io.*;
+
+public class DigramGenerator implements WordGenerator {
+
+    private Random random;
+
+    private static final int ALPHABET_LENGTH = 26;
+
+    private String firstLetters;
+
+    private String[] continuations = new String[ALPHABET_LENGTH];
+
+    public DigramGenerator(Random r) {
+        random = r;
+        fillArray();
+        // System.out.println(Arrays.toString(continuations));
+        fillString();
+        System.out.println(firstLetters);
+    }
+
+    private void fillArray(){
+        try {
+            FileReader fileReader = new FileReader("continuations.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            Scanner in = new Scanner(bufferedReader);
+            for(int i = 0; i < ALPHABET_LENGTH; i++){
+                continuations[i] = in.nextLine();
+            }
+        } catch(FileNotFoundException e){
+            System.out.println("file not found");
+        }
+    }
+
+    private void fillString(){
+        try{
+            FileReader fileReader = new FileReader("first-letters.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            Scanner in = new Scanner(bufferedReader);
+            firstLetters = in.nextLine();
+        } catch(FileNotFoundException e){
+            System.out.println("file not found");
+        }
+    }
+		
+    public String nextWord(int n) {
+       return "";
+    }
+
+}

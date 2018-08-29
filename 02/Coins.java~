@@ -1,0 +1,31 @@
+package week02;
+
+/**  Coins.java Deals with coin flips, including setting and counting.
+     Sam Fleury  COSC241      */
+
+public class Coins{
+
+    public static final boolean HEADS = true;
+    public static final boolean TAILS = false;
+
+    private boolean[] coins;
+
+    /** Constructor.
+        @param coins A boolean array representing coin face values.*/
+        
+    public Coins(boolean[] coins) {
+        this.coins = coins;
+    }
+
+    private int countHeads(){
+
+        int numHeads = 0;
+        for (boolean c : coins){
+            if (c) numHeads++;
+        }
+
+        return numHeads;
+
+    }
+
+}
